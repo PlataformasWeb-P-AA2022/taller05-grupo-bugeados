@@ -40,12 +40,13 @@
 <script>
     $(document).ready(function () {
         $("#limpiar").click(function () {
-
+            $("#myTable tbody").empty()
         });
+        
         $("#consultar").click(function () {
             var nombre_canton = $("#nombre_pais").val();
             $.ajax({
-                // type: "POST",
+                //type: "POST",
                 dataType: 'json',
                 url: 'http://127.0.0.1:5984/base_taller5/_design/vista001/_view/new-view?key="' + nombre_canton + '"'
             }).then(function (data) {
@@ -74,7 +75,7 @@
             var col3 = currentRow.find("td:eq(3)").html()
             console.log(col3);
             $.ajax({
-                // type: "POST",
+                //type: "POST",
                 dataType: 'json',
                 url: 'http://127.0.0.1:5984/base_taller5/_design/vista002/_view/new-view?key="' + col3 + '"'
             }).then(function (data) {
